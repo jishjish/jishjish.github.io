@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josh P.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f8f8;
+      --surface: #f0f0f0;
+      --border: #e2e2e2;
+      --text: #111;
+      --muted: #888;
+      --dim: #bbb;
+      --accent: #111;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 28px 96px;
+    }
+
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: #555; }
+
+    header { margin-bottom: 64px; }
+
+    header h1 {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    nav { display: flex; gap: 18px; }
+
+    nav a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    nav a:hover { color: var(--text); }
+
+    section { margin-bottom: 56px; }
+
+    h2 {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* pinned grid */
+    .pinned-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .pinned-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .pinned-media {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .pinned-media img,
+    .pinned-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .media-placeholder {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .pinned-body { padding: 12px 14px 14px; }
+
+    .pinned-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .pinned-title a { color: var(--text); }
+    .pinned-title a:hover { color: #555; }
+
+    .pinned-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .pinned-stack {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--dim);
+    }
+
+    /* other projects */
+    .project-list { margin-top: 28px; }
+
+    .project-list-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    .project-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-row:first-of-type { border-top: 1px solid var(--border); }
+
+    .project-row-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .project-row-name a { color: var(--text); }
+    .project-row-name a:hover { color: #555; }
+
+    .project-row-desc {
+      font-size: 13px;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .project-row-stack {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .coming-soon {
+      font-size: 13px;
+      color: var(--dim);
+    }
+
+    .about p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .about p + p { margin-top: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer span, footer a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 520px) {
+      .pinned-grid { grid-template-columns: 1fr; }
+      .project-row-stack { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Josh P.</h1>
+    <p class="tagline">your favorite dev's favorite dev</p>
+    <nav>
+      <a href="https://github.com/jishjish" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:">Email</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="pinned-grid">
+      <div class="pinned-card">
+        <div class="pinned-media">
+          <!-- <img src="astrotek.png" alt="Astrotek Labs" /> -->
+          <span class="media-placeholder">demo / screenshot</span>
+        </div>
+        <div class="pinned-body">
+          <div class="pinned-title"><a href="https://astroteklabs.com" target="_blank" rel="noopener">Astrotek Labs</a></div>
+          <p class="pinned-desc">Multi-chain crypto portfolio analytics with token health scoring, anomaly detection, and holder flow analysis.</p>
+          <div class="pinned-stack">Python · FastAPI · React · DuckDB</div>
+        </div>
+      </div>
+
+      <div class="pinned-card">
+        <div class="pinned-media">
+          <!-- <img src="terrier.png" alt="Terrier AI" /> -->
+          <span class="media-placeholder">demo / screenshot</span>
+        </div>
+        <div class="pinned-body">
+          <div class="pinned-title">Terrier AI</div>
+          <p class="pinned-desc">Background agent that watches Python files, parses ASTs, and writes pytest coverage in real time.</p>
+          <div class="pinned-stack">Rust · Python · AST</div>
+        </div>
+      </div>
+
+      <div class="pinned-card">
+        <div class="pinned-media">
+          <!-- <img src="blade.png" alt="Blade" /> -->
+          <span class="media-placeholder">demo / screenshot</span>
+        </div>
+        <div class="pinned-body">
+          <div class="pinned-title">Blade</div>
+          <p class="pinned-desc">Lossless compression for blockchain data. 20–30% improvement over compressed Parquet.</p>
+          <div class="pinned-stack">Rust · Parquet · Polars</div>
+        </div>
+      </div>
+
+      <div class="pinned-card">
+        <div class="pinned-media">
+          <span class="media-placeholder">demo / screenshot</span>
+        </div>
+        <div class="pinned-body">
+          <div class="pinned-title">Project four</div>
+          <p class="pinned-desc">Short description of what it does and why it matters.</p>
+          <div class="pinned-stack">stack · here</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-list">
+      <div class="project-list-label">Other</div>
+      <div class="project-row">
+        <div class="project-row-name"><a href="#">Project name</a></div>
+        <div class="project-row-desc">One line description.</div>
+        <div class="project-row-stack">Python · etc</div>
+      </div>
+      <div class="project-row">
+        <div class="project-row-name"><a href="#">Project name</a></div>
+        <div class="project-row-desc">One line description.</div>
+        <div class="project-row-stack">Rust · etc</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Writing</h2>
+    <p class="coming-soon">Coming soon.</p>
+  </section>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>Started in crypto around the Bitcoin whitepaper era. Spent time on the investment committee of a hedge fund before going full dev. Now building tools at the intersection of blockchain, data, and automation.</p>
+    <p>Python and Rust day-to-day. Interested in compression, on-chain analytics, and making dev tooling less annoying.</p>
+  </section>
+
+  <footer>
+    <span>Josh P.</span>
+    <a href="https://github.com/jishjish" target="_blank" rel="noopener">github.com/jishjish</a>
+  </footer>
+
+</body>
+</html>
