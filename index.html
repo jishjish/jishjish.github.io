@@ -26,28 +26,39 @@
       font-family: var(--sans);
       font-size: 15px;
       line-height: 1.7;
-      max-width: 720px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 72px 28px 96px;
+      padding: 56px 48px 96px;
     }
 
     a { color: var(--text); text-decoration: none; }
     a:hover { color: #555; }
 
-    header { margin-bottom: 64px; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 56px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
 
     header h1 {
       font-family: var(--mono);
       font-size: 20px;
       font-weight: 500;
       letter-spacing: -0.03em;
-      margin-bottom: 6px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
     }
 
     .tagline {
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 20px;
     }
 
     nav { display: flex; gap: 18px; }
@@ -259,11 +270,13 @@
 
   <header>
     <h1>Josh P.</h1>
-    <p class="tagline">your favorite dev's favorite dev</p>
-    <nav>
-      <a href="https://github.com/jishjish" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:">Email</a>
-    </nav>
+    <div class="header-right">
+      <span class="tagline">your favorite dev's favorite dev</span>
+      <nav>
+        <a href="https://github.com/jishjish" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:">Email</a>
+      </nav>
+    </div>
   </header>
 
   <div class="two-col">
