@@ -122,9 +122,9 @@
   <a href="../index.html" class="back">← Back</a>
 
   <div class="hero-media">
-    <img src="../assets/astrotek/astrotek_pipeline.jpeg" alt="Astrotek Labs" />
-    <!-- <video src="../media/astrotek.mp4" autoplay loop muted playsinline></video> -->
-    <span class="media-placeholder">demo / screenshot</span>
+    <!-- <img src="../media/astrotek.png" alt="Astrotek Labs" /> -->
+    <video src="../assets/astrotek/astrotek_demo_video.mp4" autoplay loop muted playsinline></video>
+    <!-- <span class="media-placeholder">demo / screenshot</span> -->
   </div>
 
   <div class="project-meta">
@@ -138,6 +138,9 @@
 
     <h3>What it does</h3>
     <p>Token health scoring, anomaly detection, holder flow analysis, and buy/sell pressure metrics — all updated on a 6-hour cycle. The backend pulls chain data via Moralis, runs it through a scoring pipeline, and stores everything in a DuckDB/MotherDuck warehouse.</p>
+
+    <h3>How it Works</h3>
+    <img src="../assets/astrotek/astrotek_pipeline.jpeg" alt="Astrotek platform workflow" style="width:100%;border-radius:6px;border:1px solid var(--border);margin:12px 0 24px;" />
 
     <h3>Stack</h3>
     <p>Python FastAPI backend, React TypeScript frontend, AWS Cognito for auth, Redis caching, EC2 deployment via PM2. Stripe billing integrated. Scheduler runs token health scoring on a cron cycle.</p>
