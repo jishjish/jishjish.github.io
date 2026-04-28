@@ -144,6 +144,17 @@
 
     <h3>Stack</h3>
     <p>Python FastAPI backend, React TypeScript frontend, AWS Cognito for auth, Redis caching, EC2 deployment via PM2. Stripe billing integrated. Scheduler runs token health scoring on a cron cycle.</p>
+
+    <h3>Code Example</h3>
+    <pre><code>
+      # set wallet address in list
+      wallet_addresses = ['0x2a230255fEc396B64D2D5eAEf5A097D3aEA29BD7']  
+      # instantiate PortfolioRiskMetrics class
+      pm = PortfolioRiskMetrics(wallets=wallet_addresses, days=7, rf=0.1, benchmark="ETH")
+      # call portfolio function
+      # portfolio function makes async request to `def current_portfolio` in balances.py
+      pm.portfolio
+    </code></pre>
   </div>
 
 </body>
