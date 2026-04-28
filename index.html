@@ -96,7 +96,13 @@
       border: 1px solid var(--border);
       border-radius: 5px;
       overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      display: block;
+      color: inherit;
     }
+
+    .pinned-card:hover { border-color: #bbb; }
 
     .pinned-media {
       width: 100%;
@@ -284,21 +290,21 @@
     <h2>Projects</h2>
 
     <div class="pinned-grid">
-      <div class="pinned-card">
+      <a href="projects/astrotek.html" class="pinned-card">
         <div class="pinned-media">
-          <!-- <img src="astrotek.png" alt="Astrotek Labs" /> -->
+          <!-- <img src="media/astrotek.png" alt="Astrotek Labs" /> -->
           <span class="media-placeholder">demo / screenshot</span>
         </div>
         <div class="pinned-body">
-          <div class="pinned-title"><a href="https://astroteklabs.com" target="_blank" rel="noopener">Astrotek Labs</a></div>
+          <div class="pinned-title">Astrotek Labs</div>
           <p class="pinned-desc">Multi-chain crypto portfolio analytics with token health scoring, anomaly detection, and holder flow analysis.</p>
           <div class="pinned-stack">Python · FastAPI · React · DuckDB</div>
         </div>
-      </div>
+      </a>
 
-      <div class="pinned-card">
+      <a href="projects/terrier.html" class="pinned-card">
         <div class="pinned-media">
-          <!-- <img src="terrier.png" alt="Terrier AI" /> -->
+          <!-- <video src="media/terrier.mp4" autoplay loop muted playsinline></video> -->
           <span class="media-placeholder">demo / screenshot</span>
         </div>
         <div class="pinned-body">
@@ -306,11 +312,10 @@
           <p class="pinned-desc">Background agent that watches Python files, parses ASTs, and writes pytest coverage in real time.</p>
           <div class="pinned-stack">Rust · Python · AST</div>
         </div>
-      </div>
+      </a>
 
-      <div class="pinned-card">
+      <a href="projects/blade.html" class="pinned-card">
         <div class="pinned-media">
-          <!-- <img src="blade.png" alt="Blade" /> -->
           <span class="media-placeholder">demo / screenshot</span>
         </div>
         <div class="pinned-body">
@@ -318,9 +323,9 @@
           <p class="pinned-desc">Lossless compression for blockchain data. 20–30% improvement over compressed Parquet.</p>
           <div class="pinned-stack">Rust · Parquet · Polars</div>
         </div>
-      </div>
+      </a>
 
-      <div class="pinned-card">
+      <a href="projects/project-four.html" class="pinned-card">
         <div class="pinned-media">
           <span class="media-placeholder">demo / screenshot</span>
         </div>
@@ -329,7 +334,7 @@
           <p class="pinned-desc">Short description of what it does and why it matters.</p>
           <div class="pinned-stack">stack · here</div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="project-list">
@@ -351,11 +356,6 @@
 
   <aside class="log-sidebar">
     <h2>Log</h2>
-
-    <div class="log-entry">
-      <div class="log-date">Apr 27</div>
-      <div class="log-text"><strong>NVIDIA</strong> — digging into the itnernals of GPUs, kernels and CUDA @ [CUDA Docs](https://docs.nvidia.com/cuda/cuda-programming-guide/)</div>
-    </div>
 
     <div class="log-entry">
       <div class="log-date">Apr 27</div>

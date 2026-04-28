@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terrier AI — Josh P.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f8f8;
+      --surface: #f0f0f0;
+      --border: #e2e2e2;
+      --text: #111;
+      --muted: #888;
+      --dim: #bbb;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 48px 96px;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: #555; }
+
+    .back {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+    .back:hover { color: var(--text); }
+
+    .hero-media {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .hero-media img,
+    .hero-media video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .media-placeholder {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .project-meta { margin-bottom: 32px; }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .stack {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .project-link:hover { color: var(--text); border-color: #ccc; }
+
+    .body {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .body p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .body p + p { margin-top: 16px; }
+
+    .body h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      margin: 32px 0 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back">← Back</a>
+
+  <div class="hero-media">
+    <!-- <img src="../media/terrier.png" alt="Astrotek Labs" /> -->
+    <!-- <video src="../media/terrier.mp4" autoplay loop muted playsinline></video> -->
+    <span class="media-placeholder">demo / screenshot</span>
+  </div>
+
+  <div class="project-meta">
+    <h1>Terrier AI</h1>
+    <div class="stack">Rust · Python · AST</div>
+    <a href="https://terrierai.dev" target="_blank" rel="noopener" class="project-link">terrierai.dev ↗</a>
+  </div>
+
+  <div class="body">
+    <p>Automated pytest generation for Python developers. Built because writing tests is necessary but writing boilerplate is painful.</p>
+
+    <h3>What it does</h3>
+    <p>A background agent that watches your Python files, parses their ASTs, and generates pytest coverage in real time. Handles nested classes, edge cases, and fixture inference.</p>
+
+    <h3>Stack</h3>
+    <p>Rust core for file watching via the notify crate. AST parsing to understand function signatures and types. LLM integration for edge cases where static analysis falls short. GUI built with the Iced framework.</p>
+  </div>
+
+</body>
+</html>
