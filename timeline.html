@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline — Josh P.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f8f8;
+      --border: #e2e2e2;
+      --text: #111;
+      --muted: #888;
+      --dim: #bbb;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 48px 96px;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: #555; }
+
+    .back {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+    .back:hover { color: var(--text); }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 56px;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      align-items: baseline;
+      gap: 0 24px;
+      padding: 9px 10px;
+      margin: 0 -10px;
+      border-radius: 4px;
+      cursor: default;
+      transition: background 0.15s;
+      position: relative;
+    }
+
+    .entry:hover { background: #efefed; }
+
+    .entry-year {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+
+    .entry:hover .entry-year { color: var(--muted); }
+
+    .entry-right {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .entry-title {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .entry-sub {
+      font-size: 12.5px;
+      color: var(--dim);
+      font-style: italic;
+      transition: color 0.15s;
+    }
+
+    .entry:hover .entry-sub { color: var(--muted); }
+
+    .entry-detail {
+      font-size: 12px;
+      color: var(--dim);
+      max-width: 420px;
+      line-height: 1.55;
+      margin-top: 3px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.2s ease;
+      grid-column: 2;
+    }
+
+    .entry:hover .entry-detail {
+      max-height: 80px;
+      opacity: 1;
+      margin-top: 4px;
+    }
+
+    .entry-detail-wrap {
+      display: contents;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 48px;
+    }
+    footer span, footer a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back">← Back</a>
+  <h1>Timeline</h1>
+
+  <div class="entries">
+
+    <div class="entry">
+      <div class="entry-year">2024 – now</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">Founder & Software Engineer</span>
+          <span class="entry-sub">building</span>
+        </div>
+        <div class="entry-detail">SaaS platform for on-chain risk analytics. Anomaly detection, token health scoring, data pipelines across 500+ assets. Rust compression engine on the side.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2023 – 2024</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">Software Engineer · Senior Data Analyst</span>
+          <span class="entry-sub">fintech</span>
+        </div>
+        <div class="entry-detail">Internal tooling, predictive models for revenue forecasting and ad spend. 7.34x ROAS. Reduced CPA review time 16x.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2022</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">Software Developer</span>
+          <span class="entry-sub">DeFi · contract</span>
+        </div>
+        <div class="entry-detail">Data extraction pipelines for DeFi protocols. Standardized financial metrics across 9 portfolio strategies.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2021 – 2022</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">Software Developer</span>
+          <span class="entry-sub">blockchain analytics</span>
+        </div>
+        <div class="entry-detail">Blockchain analytics platform with UI and API. Portfolio management across 7+ networks. ETL pipelines, financial models in R.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2017 – 2021</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">Senior Investment Analyst</span>
+          <span class="entry-sub">hedge fund · investment committee</span>
+        </div>
+        <div class="entry-detail">Led the firm's blockchain investment practice. 150+ opportunities across credit, equity, and digital assets. Nominated to the Investment Committee.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2012 – 2016</div>
+      <div>
+        <div class="entry-right">
+          <span class="entry-title">BS International Business & Economics</span>
+          <span class="entry-sub">top of major</span>
+        </div>
+        <div class="entry-detail">Where the crypto rabbit hole started.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Josh P.</span>
+    <a href="https://github.com/jishjish" target="_blank" rel="noopener">github.com/jishjish</a>
+  </footer>
+
+</body>
+</html>
