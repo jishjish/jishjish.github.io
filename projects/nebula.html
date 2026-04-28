@@ -155,28 +155,40 @@
     <h3>Design</h3>
     <p>Built on top of proven open source tooling for chain data extraction, with custom processing layers on top. Each stage in the pipeline is sequential and composable — outputs from one stage feed directly into the next with no intermediate complexity.</p>
 
-    <ol>
-      <li>
-        <strong>Erc20Data (Data)</strong> --> <code>src/evm/data.py</code><br><br>
+     <ol style="margin-top: 24px; padding-left: 18px;">
+    <li style="margin-bottom: 24px;">
+      <div class="pipeline-step" style="display:inline-block; margin-bottom:8px;">
+        Erc20Data (Data) → src/evm/data.py
+      </div>
+      <p>
         <code>
-    Class to manage addition of block data and retrieval from corresponding parquet files. This can be thought of as an organizer class to get the data in line for future analysis. This is set to retrieve erc20 transfers and logs at the same time. For ex, requesting data for blocks 100 to 200 will get both transfers and logs via cryo.
+Class to manage addition of block data and retrieval from corresponding parquet files. This can be thought of as an organizer class to get the data in line for future analysis. This is set to retrieve erc20 transfers and logs at the same time. For ex, requesting data for blocks 100 to 200 will get both transfers and logs via cryo.
         </code>
-      </li>
-      <br>
-      <li>
-        <strong>Erc20Ops (Ops)</strong> --> <code>src/evm/ops.py</code><br><br>
+      </p>
+    </li>
+
+    <li style="margin-bottom: 24px;">
+      <div class="pipeline-step" style="display:inline-block; margin-bottom:8px;">
+        Erc20Ops (Ops) → src/evm/ops.py
+      </div>
+      <p>
         <code>
-    Handles parquet orchestration and consolidation of files, specifically managing / merging erc20 transfers and logs from their corresponding parquet repositories inside of the data folder.
+Handles parquet orchestration and consolidation of files, specifically managing / merging erc20 transfers and logs from their corresponding parquet repositories inside of the data folder.
         </code>
-      </li>
-      <br>
-      <li>
-        <strong>Erc20Classifier (Classifier)</strong> --> <code>src/evm/classifier.py</code><br><br>
+      </p>
+    </li>
+
+    <li>
+      <div class="pipeline-step" style="display:inline-block; margin-bottom:8px;">
+        Erc20Classifier (Classifier) → src/evm/classifier.py
+      </div>
+      <p>
         <code>
-    Loads transfer and log parquets into Polars lazyframes. Zip and iterate through the file paths and lazyframes to match exchange / event (match_exchange_and_event) and token metadata (match_token_metadata), finally, write output to parquet with prefix "matched".
+Loads transfer and log parquets into Polars lazyframes. Zip and iterate through the file paths and lazyframes to match exchange / event (match_exchange_and_event) and token metadata (match_token_metadata), finally, write output to parquet with prefix "matched".
         </code>
-      </li>
-    </ol>
+      </p>
+    </li>
+  </ol>
 
     <h3>Output</h3>
     <p>Tensorified ERC-20 transfers and logs that can feed directly into models for anomaly detection, wallet classification, and on-chain behavioral analysis.</p>
