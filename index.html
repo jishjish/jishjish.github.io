@@ -274,16 +274,22 @@
     .link-subtle {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--text);            /* brighter than dim */
+
+      color: var(--text);
+      font-weight: 600;
+
       text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1px;
+
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 2px;
+
+      letter-spacing: 0.2px;
+
       transition: all 0.15s ease;
     }
 
     .link-subtle:hover {
-      color: var(--text);
-      border-color: var(--text);
+      opacity: 0.75;
     }
 
     @media (max-width: 620px) {
@@ -388,10 +394,14 @@
     <div class="log-entry">
       <div class="log-date">Apr 27</div>
       <!-- <div class="log-text">Working through NVIDIA docs — GPU architecture, memory hierarchy, warp scheduling. Notes at <a href="https://github.com/jishjish/learn-gpu" target="_blank" rel="noopener">learn-gpu</a>.</div> -->
-       <div><a href="https://github.com/jishjish/learn-gpu"
-        target="_blank"
-        rel="noopener"
-        class="link-subtle">learn-gpu</a></div>
+       <div class="log-text">
+        Working through NVIDIA docs — GPU architecture, memory hierarchy, warp scheduling.
+        Notes at 
+        <a href="https://github.com/jishjish/learn-gpu"
+          target="_blank"
+          rel="noopener"
+          class="link-subtle">learn-gpu</a>.
+      </div>
     </div>
 
     <div class="log-entry">
