@@ -53,7 +53,13 @@
     .header-right {
       display: flex;
       align-items: baseline;
-      gap: 24px;
+      gap: 16px;
+    }
+
+    .header-sep {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--dim);
     }
 
     .tagline {
@@ -278,8 +284,12 @@
     <h1>Josh P.</h1>
     <div class="header-right">
       <span class="tagline">your favorite dev's favorite dev</span>
+      <span class="header-sep">||</span>
       <nav>
+        <a href="timeline.html">Timeline</a>
+        <span style="color:var(--dim)">·</span>
         <a href="https://github.com/jishjish" target="_blank" rel="noopener">GitHub</a>
+        <span style="color:var(--dim)">·</span>
         <a href="mailto:">Email</a>
       </nav>
     </div>
