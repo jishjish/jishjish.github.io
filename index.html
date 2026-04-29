@@ -260,6 +260,33 @@
 
     .log-text strong { color: var(--text); font-weight: 500; }
 
+    .now-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .now-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--dim);
+      font-size: 14px;
+      line-height: 1;
+      padding: 1px 6px;
+      cursor: pointer;
+      transition: color 0.12s, border-color 0.12s;
+    }
+
+    .now-btn:hover:not(:disabled) { color: var(--text); border-color: #bbb; }
+    .now-btn:disabled { opacity: 0.3; cursor: default; }
+
+    .now-page-indicator {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+    }
+
     .link-subtle {
       font-family: var(--mono);
       font-size: 11px;
@@ -389,36 +416,46 @@
   </section>
 
   <aside class="log-sidebar">
-    <h2>Now</h2>
-
-    <div class="log-entry">
-      <div class="log-date">Apr 2026</div>
-      <div class="log-text">
-        Working through GPU architecture, memory hierarchy, warp scheduling through NVIDIA docs.
-        Notes / code at
-        <a href="https://github.com/jishjish/learn-gpu" target="_blank" rel="noopener" class="link-subtle">learn-gpu</a>.
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
+      <h2 style="margin-bottom:0;padding-bottom:0;border-bottom:none;">Now</h2>
+      <div class="now-nav">
+        <button class="now-btn" id="now-prev" onclick="nowPage(-1)">&#8249;</button>
+        <span class="now-page-indicator" id="now-indicator">1 / 1</span>
+        <button class="now-btn" id="now-next" onclick="nowPage(1)">&#8250;</button>
       </div>
     </div>
+    <div style="border-bottom:1px solid var(--border);margin-bottom:0;"></div>
 
-    <div class="log-entry">
-      <div class="log-date">Apr 2026</div>
-      <div class="log-text">
-        Streaming blockchain transactions with ML classifications.
-        Training and building on top of
-        <a href="https://github.com/Astrotek-Labs/nexus" target="_blank" rel="noopener" class="link-subtle">Astrotek Nexus</a>.
+    <div id="now-entries">
+      <div class="log-entry">
+        <div class="log-date">Apr 2026</div>
+        <div class="log-text">
+          Working through GPU architecture, memory hierarchy, warp scheduling through NVIDIA docs.
+          Notes / code at
+          <a href="https://github.com/jishjish/learn-gpu" target="_blank" rel="noopener" class="link-subtle">learn-gpu</a>.
+        </div>
       </div>
-    </div>
 
-    <div class="log-entry">
-      <div class="log-date">ongoing</div>
-      <div class="log-text">Google ML Course. Filling in the formal gaps.</div>
-    </div>
+      <div class="log-entry">
+        <div class="log-date">Apr 2026</div>
+        <div class="log-text">
+          Streaming blockchain transactions with ML classifications.
+          Training and building on top of
+          <a href="https://github.com/Astrotek-Labs/nexus" target="_blank" rel="noopener" class="link-subtle">Astrotek Nexus</a>.
+        </div>
+      </div>
 
-    <div class="log-entry">
-      <div class="log-date">ongoing</div>
-      <div class="log-text">
-        Stumbling my way through the
-        <a href="https://github.com/tinygrad/tinygrad" target="_blank" rel="noopener" class="link-subtle">tinygrad repo</a>.
+      <div class="log-entry">
+        <div class="log-date">ongoing</div>
+        <div class="log-text">Google ML Course. Filling in the formal gaps.</div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">ongoing</div>
+        <div class="log-text">
+          Stumbling my way through the
+          <a href="https://github.com/tinygrad/tinygrad" target="_blank" rel="noopener" class="link-subtle">tinygrad repo</a>.
+        </div>
       </div>
     </div>
 
@@ -434,6 +471,37 @@
     <span>Josh P.</span>
     <a href="https://github.com/jishjish" target="_blank" rel="noopener">github.com/jishjish</a>
   </footer>
+
+  <script>
+    const PER_PAGE = 4;
+    let nowCurrentPage = 0;
+
+    function initNow() {
+      const entries = document.querySelectorAll('#now-entries .log-entry');
+      const total = Math.ceil(entries.length / PER_PAGE);
+      renderNow();
+    }
+
+    function renderNow() {
+      const entries = Array.from(document.querySelectorAll('#now-entries .log-entry'));
+      const total = Math.ceil(entries.length / PER_PAGE);
+      entries.forEach((e, i) => {
+        e.style.display = (i >= nowCurrentPage * PER_PAGE && i < (nowCurrentPage + 1) * PER_PAGE) ? '' : 'none';
+      });
+      document.getElementById('now-indicator').textContent = `${nowCurrentPage + 1} / ${total}`;
+      document.getElementById('now-prev').disabled = nowCurrentPage === 0;
+      document.getElementById('now-next').disabled = nowCurrentPage >= total - 1;
+    }
+
+    function nowPage(dir) {
+      const entries = document.querySelectorAll('#now-entries .log-entry');
+      const total = Math.ceil(entries.length / PER_PAGE);
+      nowCurrentPage = Math.max(0, Math.min(total - 1, nowCurrentPage + dir));
+      renderNow();
+    }
+
+    initNow();
+  </script>
 
   <script>
     function copyEmail(btn) {
