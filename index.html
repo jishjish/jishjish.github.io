@@ -76,21 +76,12 @@
       color: var(--dim);
     }
 
-    .tagline {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .tagline { font-size: 13px; color: var(--muted); }
 
     nav { display: flex; gap: 18px; align-items: baseline; }
-
-    nav a {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
+    nav a { font-size: 13px; color: var(--muted); }
     nav a:hover { color: var(--text); }
 
-    /* copy email button */
     .email-btn {
       font-family: var(--sans);
       font-size: 13px;
@@ -101,7 +92,6 @@
       padding: 0;
       transition: color 0.15s;
     }
-
     .email-btn:hover { color: var(--text); }
     .email-btn.copied { color: #4caf50; }
 
@@ -117,6 +107,22 @@
       margin-bottom: 24px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
+    }
+
+    /* projects header row */
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .projects-header h2 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
     .pinned-grid {
@@ -206,29 +212,41 @@
 
     .project-row:first-of-type { border-top: 1px solid var(--border); }
 
-    .project-row-name {
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 500;
-    }
-
+    .project-row-name { font-family: var(--mono); font-size: 13px; font-weight: 500; }
     .project-row-name a { color: var(--text); }
     .project-row-name a:hover { color: #555; }
+    .project-row-desc { font-size: 13px; color: var(--muted); flex: 1; }
+    .project-row-stack { font-family: var(--mono); font-size: 11px; color: var(--dim); white-space: nowrap; flex-shrink: 0; }
 
-    .project-row-desc {
-      font-size: 13px;
-      color: var(--muted);
-      flex: 1;
+    /* pagination shared */
+    .page-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .project-row-stack {
-      font-family: var(--mono);
-      font-size: 11px;
+    .page-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
       color: var(--dim);
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 14px;
+      line-height: 1;
+      padding: 1px 6px;
+      cursor: pointer;
+      transition: color 0.12s, border-color 0.12s;
     }
 
+    .page-btn:hover:not(:disabled) { color: var(--text); border-color: #bbb; }
+    .page-btn:disabled { opacity: 0.3; cursor: default; }
+
+    .page-indicator {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    /* two-col */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 200px;
@@ -245,47 +263,9 @@
 
     .log-entry:first-child { border-top: 1px solid var(--border); }
 
-    .log-date {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--dim);
-      margin-bottom: 3px;
-    }
-
-    .log-text {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
+    .log-date { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-bottom: 3px; }
+    .log-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
     .log-text strong { color: var(--text); font-weight: 500; }
-
-    .now-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .now-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--dim);
-      font-size: 14px;
-      line-height: 1;
-      padding: 1px 6px;
-      cursor: pointer;
-      transition: color 0.12s, border-color 0.12s;
-    }
-
-    .now-btn:hover:not(:disabled) { color: var(--text); border-color: #bbb; }
-    .now-btn:disabled { opacity: 0.3; cursor: default; }
-
-    .now-page-indicator {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--dim);
-    }
 
     .link-subtle {
       font-family: var(--mono);
@@ -298,16 +278,9 @@
       letter-spacing: 0.2px;
       transition: all 0.15s ease;
     }
-
     .link-subtle:hover { opacity: 0.75; }
 
-    .about p {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.75;
-    }
-
+    .about p { font-size: 14px; color: var(--muted); max-width: 520px; line-height: 1.75; }
     .about p + p { margin-top: 14px; }
 
     footer {
@@ -317,12 +290,7 @@
       justify-content: space-between;
     }
 
-    footer span, footer a {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--dim);
-    }
-
+    footer span, footer a { font-family: var(--mono); font-size: 11px; color: var(--dim); }
     footer a:hover { color: var(--text); }
 
     @media (max-width: 620px) {
@@ -352,13 +320,18 @@
 
   <div class="two-col">
   <section>
-    <h2>Projects</h2>
+    <div class="projects-header">
+      <h2>Projects</h2>
+      <div class="page-nav">
+        <button class="page-btn" id="proj-prev" onclick="projPage(-1)">&#8249;</button>
+        <span class="page-indicator" id="proj-indicator">1 / 2</span>
+        <button class="page-btn" id="proj-next" onclick="projPage(1)">&#8250;</button>
+      </div>
+    </div>
 
-    <div class="pinned-grid">
+    <div id="proj-cards" class="pinned-grid">
       <a href="projects/astrotek.html" class="pinned-card">
-        <div class="pinned-media">
-          <img src="assets/astrotek/overview.jpeg" alt="Astrotek Labs" />
-        </div>
+        <div class="pinned-media"><img src="assets/astrotek/overview.jpeg" alt="Astrotek Labs" /></div>
         <div class="pinned-body">
           <div class="pinned-title">Astrotek Labs</div>
           <p class="pinned-desc">Multi-chain crypto portfolio analytics with token health scoring, anomaly detection, and holder flow analysis.</p>
@@ -367,9 +340,7 @@
       </a>
 
       <a href="projects/blade.html" class="pinned-card">
-        <div class="pinned-media">
-          <img src="assets/blade/blade_logo.png" alt="Blade" />
-        </div>
+        <div class="pinned-media"><img src="assets/blade/blade_logo.png" alt="Blade" /></div>
         <div class="pinned-body">
           <div class="pinned-title">Blade</div>
           <p class="pinned-desc">Lossless compression for blockchain data. 20–30% improvement over compressed Parquet.</p>
@@ -378,9 +349,7 @@
       </a>
 
       <a href="projects/nebula.html" class="pinned-card">
-        <div class="pinned-media">
-          <img src="assets/nebula/nebula_logo.png" alt="Nebula" />
-        </div>
+        <div class="pinned-media"><img src="assets/nebula/nebula_logo.png" alt="Nebula" /></div>
         <div class="pinned-body">
           <div class="pinned-title">Nebula</div>
           <p class="pinned-desc">Orchestration platform for managing EVM based data.</p>
@@ -389,20 +358,16 @@
       </a>
 
       <a href="projects/forge.html" class="pinned-card">
-        <div class="pinned-media">
-          <img src="assets/forge/forge_logo.png" alt="Forge" />
-        </div>
+        <div class="pinned-media" style="background:#0d0f14;"><img src="assets/forge/forge_logo.png" alt="PyForge" style="width:60%;height:auto;object-fit:contain;" /></div>
         <div class="pinned-body">
-          <div class="pinned-title">Forge</div>
-          <p class="pinned-desc">Python compiler that detects your GPU and emits CUDA kernels.</p>
-          <div class="pinned-stack">Python · CUDA · C++ · GPUs</div>
+          <div class="pinned-title">PyForge</div>
+          <p class="pinned-desc">Python compiler that detects your GPU and emits optimized CUDA kernels at runtime.</p>
+          <div class="pinned-stack">Python · CUDA · C++</div>
         </div>
       </a>
 
       <a href="projects/terrier.html" class="pinned-card">
-        <div class="pinned-media">
-          <img src="assets/terrier/terrier_ai.png" alt="Terrier AI" />
-        </div>
+        <div class="pinned-media"><img src="assets/terrier/terrier_ai.png" alt="Terrier AI" /></div>
         <div class="pinned-body">
           <div class="pinned-title">Terrier AI</div>
           <p class="pinned-desc">Background agent that watches Python files, parses ASTs, and writes pytest coverage in real time.</p>
@@ -429,10 +394,10 @@
   <aside class="log-sidebar">
     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
       <h2 style="margin-bottom:0;padding-bottom:0;border-bottom:none;">Now</h2>
-      <div class="now-nav">
-        <button class="now-btn" id="now-prev" onclick="nowPage(-1)">&#8249;</button>
-        <span class="now-page-indicator" id="now-indicator">1 / 1</span>
-        <button class="now-btn" id="now-next" onclick="nowPage(1)">&#8250;</button>
+      <div class="page-nav">
+        <button class="page-btn" id="now-prev" onclick="nowPage(-1)">&#8249;</button>
+        <span class="page-indicator" id="now-indicator">1 / 1</span>
+        <button class="page-btn" id="now-next" onclick="nowPage(1)">&#8250;</button>
       </div>
     </div>
     <div style="border-bottom:1px solid var(--border);margin-bottom:0;"></div>
@@ -440,42 +405,23 @@
     <div id="now-entries">
       <div class="log-entry">
         <div class="log-date">May 2026</div>
-        <div class="log-text">
-          Building minimal CUDA compiler Python package.
-          Code at
-          <a href="https://github.com/jishjish/forge" target="_blank" rel="noopener" class="link-subtle">forge</a>.
-        </div>
+        <div class="log-text">Building minimal CUDA compiler Python package. Code at <a href="https://github.com/jishjish/forge" target="_blank" rel="noopener" class="link-subtle">forge</a>.</div>
       </div>
-
       <div class="log-entry">
         <div class="log-date">Apr 2026</div>
-        <div class="log-text">
-          Working through GPU architecture, memory hierarchy, warp scheduling through NVIDIA docs.
-          Notes / code at
-          <a href="https://github.com/jishjish/learn-gpu" target="_blank" rel="noopener" class="link-subtle">learn-gpu</a>.
-        </div>
+        <div class="log-text">Working through GPU architecture, memory hierarchy, warp scheduling through NVIDIA docs. Notes / code at <a href="https://github.com/jishjish/learn-gpu" target="_blank" rel="noopener" class="link-subtle">learn-gpu</a>.</div>
       </div>
-
       <div class="log-entry">
         <div class="log-date">Apr 2026</div>
-        <div class="log-text">
-          Streaming blockchain transactions with ML classifications.
-          Training and building on top of
-          <a href="https://github.com/Astrotek-Labs/nexus" target="_blank" rel="noopener" class="link-subtle">Astrotek Nexus</a>.
-        </div>
+        <div class="log-text">Streaming blockchain transactions with ML classifications. Training and building on top of <a href="https://github.com/Astrotek-Labs/nexus" target="_blank" rel="noopener" class="link-subtle">Astrotek Nexus</a>.</div>
       </div>
-
       <div class="log-entry">
         <div class="log-date">ongoing</div>
         <div class="log-text">Google ML Course. Filling in the formal gaps.</div>
       </div>
-
       <div class="log-entry">
         <div class="log-date">ongoing</div>
-        <div class="log-text">
-          Stumbling my way through the
-          <a href="https://github.com/tinygrad/tinygrad" target="_blank" rel="noopener" class="link-subtle">tinygrad repo</a>.
-        </div>
+        <div class="log-text">Stumbling my way through the <a href="https://github.com/tinygrad/tinygrad" target="_blank" rel="noopener" class="link-subtle">tinygrad repo</a>.</div>
       </div>
     </div>
 
@@ -493,20 +439,35 @@
   </footer>
 
   <script>
-    const PER_PAGE = 4;
-    let nowCurrentPage = 0;
+    const PROJ_PER_PAGE = 4;
+    let projCurrentPage = 0;
 
-    function initNow() {
-      const entries = document.querySelectorAll('#now-entries .log-entry');
-      const total = Math.ceil(entries.length / PER_PAGE);
-      renderNow();
+    function renderProj() {
+      const cards = Array.from(document.querySelectorAll('#proj-cards .pinned-card'));
+      const total = Math.ceil(cards.length / PROJ_PER_PAGE);
+      cards.forEach((c, i) => {
+        c.style.display = (i >= projCurrentPage * PROJ_PER_PAGE && i < (projCurrentPage + 1) * PROJ_PER_PAGE) ? '' : 'none';
+      });
+      document.getElementById('proj-indicator').textContent = `${projCurrentPage + 1} / ${total}`;
+      document.getElementById('proj-prev').disabled = projCurrentPage === 0;
+      document.getElementById('proj-next').disabled = projCurrentPage >= total - 1;
     }
+
+    function projPage(dir) {
+      const cards = document.querySelectorAll('#proj-cards .pinned-card');
+      const total = Math.ceil(cards.length / PROJ_PER_PAGE);
+      projCurrentPage = Math.max(0, Math.min(total - 1, projCurrentPage + dir));
+      renderProj();
+    }
+
+    const NOW_PER_PAGE = 4;
+    let nowCurrentPage = 0;
 
     function renderNow() {
       const entries = Array.from(document.querySelectorAll('#now-entries .log-entry'));
-      const total = Math.ceil(entries.length / PER_PAGE);
+      const total = Math.ceil(entries.length / NOW_PER_PAGE);
       entries.forEach((e, i) => {
-        e.style.display = (i >= nowCurrentPage * PER_PAGE && i < (nowCurrentPage + 1) * PER_PAGE) ? '' : 'none';
+        e.style.display = (i >= nowCurrentPage * NOW_PER_PAGE && i < (nowCurrentPage + 1) * NOW_PER_PAGE) ? '' : 'none';
       });
       document.getElementById('now-indicator').textContent = `${nowCurrentPage + 1} / ${total}`;
       document.getElementById('now-prev').disabled = nowCurrentPage === 0;
@@ -515,15 +476,14 @@
 
     function nowPage(dir) {
       const entries = document.querySelectorAll('#now-entries .log-entry');
-      const total = Math.ceil(entries.length / PER_PAGE);
+      const total = Math.ceil(entries.length / NOW_PER_PAGE);
       nowCurrentPage = Math.max(0, Math.min(total - 1, nowCurrentPage + dir));
       renderNow();
     }
 
-    initNow();
-  </script>
+    renderProj();
+    renderNow();
 
-  <script>
     function copyEmail(btn) {
       navigator.clipboard.writeText('joshuataylorphillips@gmail.com').then(() => {
         const orig = btn.textContent;
