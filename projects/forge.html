@@ -136,7 +136,7 @@
   </div>
 
   <div class="body">
-    <p>A Python-to-GPU compiler that dynamically detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability, etc.) and uses that information to emit optimized kernels as compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> files.</p>
+    <p>A Python-to-GPU compiler that dynamically detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability, etc.) and uses that information to emit optimized kernels.</p>
 
     <h3>Architecture</h3>
     <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and driver without requiring a full C extension.</p>
