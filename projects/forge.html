@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyForge — Josh P.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f8f8;
+      --surface: #f0f0f0;
+      --border: #e2e2e2;
+      --text: #111;
+      --muted: #888;
+      --dim: #bbb;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 48px 96px;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: #555; }
+
+    .back {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+    .back:hover { color: var(--text); }
+
+    .hero-media {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .hero-media img { width: 60%; height: auto; object-fit: contain; }
+
+    .project-meta { margin-bottom: 32px; }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .stack {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .project-link:hover { color: var(--text); border-color: #ccc; }
+
+    .body {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .body p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .body p + p { margin-top: 16px; }
+
+    .body h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      margin: 32px 0 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--dim);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 2px 7px;
+      margin-right: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back">← Back</a>
+
+  <div class="hero-media">
+    <img src="../assets/forge_logo.png" alt="PyForge" />
+  </div>
+
+  <div class="project-meta">
+    <h1>PyForge</h1>
+    <div class="stack">Python · CUDA · C++ · GPUs</div>
+    <a href="#" class="project-link">GitHub ↗</a>
+  </div>
+
+  <div class="body">
+    <p>A Python-to-CUDA compiler that dynamically detects your GPU at runtime via the CUDA driver API, queries hardware capabilities — thread dims, SM count, compute capability — and uses that information to emit optimized CUDA kernels as compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> files.</p>
+
+    <h3>Architecture</h3>
+    <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and the CUDA driver without requiring a full C extension.</p>
+
+    <h3>What makes it interesting</h3>
+    <p>Most Python GPU tooling abstracts away the hardware. Forge goes the other direction — it surfaces thread/block hierarchy, SM counts, and compute capability explicitly, then uses that information to parameterize kernel generation. The output is valid, compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> code, not a wrapper.</p>
+
+    <h3>Roadmap</h3>
+    <p>The next step is a working <code style="font-family:var(--mono);font-size:13px;">matmul</code> kernel end-to-end — two input arrays, a parameterized CUDA f-string, compiled via <code style="font-family:var(--mono);font-size:13px;">nvcc</code>, result returned to Python. From there: tiled shared memory optimization, additional ops, and eventually a lightweight computation graph for kernel fusion.</p>
+
+    <div>
+      <span class="tag">Python</span>
+      <span class="tag">CUDA</span>
+      <span class="tag">C++</span>
+      <!-- <span class="tag">Pydantic</span> -->
+      <!-- <span class="tag">ctypes FFI</span> -->
+      <!-- <span class="tag">nvcc</span> -->
+      <span class="tag">GPUs</span>
+    </div>
+  </div>
+
+</body>
+</html>
