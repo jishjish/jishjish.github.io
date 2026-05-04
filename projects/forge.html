@@ -136,16 +136,16 @@
   </div>
 
   <div class="body">
-    <p>A Python-to-CUDA compiler that dynamically detects your GPU at runtime via the CUDA driver API, queries hardware capabilities — thread dims, SM count, compute capability — and uses that information to emit optimized CUDA kernels as compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> files.</p>
+    <p>A Python-to-GPU compiler that dynamically detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability, etc.) and uses that information to emit optimized kernels as compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> files.</p>
 
     <h3>Architecture</h3>
-    <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and the CUDA driver without requiring a full C extension.</p>
+    <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and driver without requiring a full C extension.</p>
 
-    <h3>What makes it interesting</h3>
-    <p>Most Python GPU tooling abstracts away the hardware. Forge goes the other direction — it surfaces thread/block hierarchy, SM counts, and compute capability explicitly, then uses that information to parameterize kernel generation. The output is valid, compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> code, not a wrapper.</p>
+    <!-- <h3>Why</h3> -->
+    <!-- <p>Most Python GPU tooling abstracts away the hardware. Forge goes the other direction — it surfaces thread/block hierarchy, SM counts, and compute capability explicitly, then uses that information to parameterize kernel generation. The output is valid, compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> code, not a wrapper.</p> -->
 
     <h3>Roadmap</h3>
-    <p>The next step is a working <code style="font-family:var(--mono);font-size:13px;">matmul</code> kernel end-to-end — two input arrays, a parameterized CUDA f-string, compiled via <code style="font-family:var(--mono);font-size:13px;">nvcc</code>, result returned to Python. From there: tiled shared memory optimization, additional ops, and eventually a lightweight computation graph for kernel fusion.</p>
+    <p>The next step is a working <code style="font-family:var(--mono);font-size:13px;">matmul</code> kernel end-to-end... two input arrays, a parameterized f-string, compiled via <code style="font-family:var(--mono);font-size:13px;">nvcc</code>, result returned to Python. From there: tiled shared memory optimization, additional ops, and eventually a lightweight computation graph for kernel fusion.</p>
 
     <div>
       <span class="tag">Python</span>
