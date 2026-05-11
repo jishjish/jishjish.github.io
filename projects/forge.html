@@ -218,7 +218,7 @@
 
   <div class="project-meta">
     <h1>Forge</h1>
-    <div class="stack">Python · CUDA · Metal ·  C++ · GPUs</div>
+    <div class="stack">Python · CUDA · Metal · C++ · GPUs</div>
     <a href="https://github.com/jishjish/forge" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
   </div>
 
@@ -226,7 +226,7 @@
     <p>A runtime GPU compiler targeting portfolio analytics workloads. Forge detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability) and uses that information to emit optimized kernels for operations like log returns and correlation matrices.</p>
 
     <h3>Why GPU for portfolio math</h3>
-    <p>Operations like correlation matrices, efficient frontier computation, and rolling return windows are embarrassingly parallel. They map naturally to GPU thread hierarchies but are typically handled by CPU-bound NumPy or Pandas. Forge generates compiled kernels that run these ops natively on the device, parameterized to actual hardware capabilities rather than generic defaults.</p>
+    <p>Operations like correlation matrices, efficient frontier computation, and rolling return windows scale with the number of assets and length of your time series. GPU acceleration lets you run these calculations across far larger universes and longer histories than traditional CPU-bound implementations typically allow. Forge generates compiled kernels parameterized to your actual hardware, not generic defaults.</p>
 
     <h3>Architecture</h3>
     <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and driver without requiring a full C extension.</p>
@@ -243,7 +243,7 @@
       </div>
       <div class="op-card">
         <div class="op-name">eff_frontier</div>
-        <div class="op-desc">Parallelized mean-variance sweep.</div>
+        <div class="op-desc">Portfolio weight optimization across many combinations.</div>
       </div>
     </div>
 
@@ -259,7 +259,7 @@
       <span class="tag">Metal</span>
       <span class="tag">C++</span>
       <span class="tag">GPUs</span>
-      <span class="tag">Portfolio Analytics</span>
+      <span class="tag">portfolio analytics</span>
     </div>
   </div>
 
