@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PyForge — Josh P.</title>
+  <title>Forge — Josh P.</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +29,6 @@
     }
     a { color: var(--text); text-decoration: none; }
     a:hover { color: #555; }
-
     .back {
       font-family: var(--mono);
       font-size: 11px;
@@ -42,7 +41,6 @@
       margin-bottom: 40px;
     }
     .back:hover { color: var(--text); }
-
     .hero-media {
       width: 100%;
       aspect-ratio: 16/9;
@@ -54,11 +52,54 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 40px;
+      position: relative;
     }
-    .hero-media img { width: 60%; height: auto; object-fit: contain; }
-
+    .hero-ticker {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      gap: 0;
+      border-top: 1px solid #1e2230;
+      padding: 10px 24px;
+      background: #0a0c10;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 28px;
+      white-space: nowrap;
+    }
+    .ticker-sym { color: #4a5568; }
+    .ticker-val { color: #e2e8f0; }
+    .ticker-chg.up { color: #48bb78; }
+    .ticker-chg.dn { color: #fc8181; }
+    .hero-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-wordmark {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 500;
+      color: #e2e8f0;
+      letter-spacing: 0.06em;
+    }
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #4a5568;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
     .project-meta { margin-bottom: 32px; }
-
     h1 {
       font-family: var(--mono);
       font-size: 22px;
@@ -66,14 +107,12 @@
       letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
-
     .stack {
       font-family: var(--mono);
       font-size: 11px;
       color: var(--dim);
       margin-bottom: 12px;
     }
-
     .project-link {
       font-size: 13px;
       color: var(--muted);
@@ -83,21 +122,17 @@
       display: inline-block;
     }
     .project-link:hover { color: var(--text); border-color: #ccc; }
-
     .body {
       border-top: 1px solid var(--border);
       padding-top: 32px;
     }
-
     .body p {
       font-size: 14.5px;
       color: var(--muted);
       line-height: 1.8;
       max-width: 620px;
     }
-
     .body p + p { margin-top: 16px; }
-
     .body h3 {
       font-family: var(--mono);
       font-size: 11px;
@@ -107,7 +142,30 @@
       color: var(--dim);
       margin: 32px 0 12px;
     }
-
+    .ops-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+      max-width: 620px;
+    }
+    .op-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px 12px;
+      background: var(--surface);
+    }
+    .op-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .op-desc {
+      font-size: 11px;
+      color: var(--dim);
+      line-height: 1.5;
+    }
     .tag {
       display: inline-block;
       font-family: var(--mono);
@@ -119,6 +177,10 @@
       margin-right: 5px;
       margin-top: 10px;
     }
+    code {
+      font-family: var(--mono);
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
@@ -126,35 +188,78 @@
   <a href="../index.html" class="back">← Back</a>
 
   <div class="hero-media">
-    <img src="../assets/forge/forge_logo.png" alt="PyForge" />
+    <div class="hero-logo-wrap">
+      <div class="hero-wordmark">FORGE</div>
+      <div class="hero-sub">GPU-native portfolio analytics</div>
+    </div>
+    <div class="hero-ticker">
+      <div class="ticker-item">
+        <span class="ticker-sym">log_returns</span>
+        <span class="ticker-val">kernel</span>
+        <span class="ticker-chg up">in progress</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-sym">corr_matrix</span>
+        <span class="ticker-val">kernel</span>
+        <span class="ticker-chg dn">planned</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-sym">eff_frontier</span>
+        <span class="ticker-val">kernel</span>
+        <span class="ticker-chg dn">planned</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-sym">CUDA</span>
+        <span class="ticker-val">backend</span>
+        <span class="ticker-chg up">building</span>
+      </div>
+    </div>
   </div>
 
   <div class="project-meta">
-    <h1>PyForge</h1>
-    <div class="stack">Python · CUDA · C++ · GPUs</div>
+    <h1>Forge</h1>
+    <div class="stack">Python · CUDA · Metal ·  C++ · GPUs</div>
     <a href="https://github.com/jishjish/forge" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
   </div>
 
   <div class="body">
-    <p>A Python-to-GPU compiler that dynamically detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability, etc.) and uses that information to emit optimized kernels.</p>
+    <p>A runtime GPU compiler targeting portfolio analytics workloads. Forge detects your GPU at runtime, queries hardware capabilities (thread dims, SM count, compute capability) and uses that information to emit optimized kernels for operations like log returns and correlation matrices.</p>
+
+    <h3>Why GPU for portfolio math</h3>
+    <p>Operations like correlation matrices, efficient frontier computation, and rolling return windows are embarrassingly parallel. They map naturally to GPU thread hierarchies but are typically handled by CPU-bound NumPy or Pandas. Forge generates compiled kernels that run these ops natively on the device, parameterized to actual hardware capabilities rather than generic defaults.</p>
 
     <h3>Architecture</h3>
     <p>Built around a plugin-style device discovery system, Pydantic models for device state, and a clean separation between device detection, kernel generation, and compilation. The ctypes FFI layer bridges Python and driver without requiring a full C extension.</p>
 
-    <!-- <h3>Why</h3> -->
-    <!-- <p>Most Python GPU tooling abstracts away the hardware. Forge goes the other direction — it surfaces thread/block hierarchy, SM counts, and compute capability explicitly, then uses that information to parameterize kernel generation. The output is valid, compiled <code style="font-family:var(--mono);font-size:13px;">.cu</code> code, not a wrapper.</p> -->
+    <h3>Target ops</h3>
+    <div class="ops-grid">
+      <div class="op-card">
+        <div class="op-name">log_returns</div>
+        <div class="op-desc">First kernel. End-to-end codegen target.</div>
+      </div>
+      <div class="op-card">
+        <div class="op-name">corr_matrix</div>
+        <div class="op-desc">N-asset pairwise correlation, tiled.</div>
+      </div>
+      <div class="op-card">
+        <div class="op-name">eff_frontier</div>
+        <div class="op-desc">Parallelized mean-variance sweep.</div>
+      </div>
+    </div>
 
     <h3>Roadmap</h3>
-    <p>The next step is a working <code style="font-family:var(--mono);font-size:13px;">matmul</code> kernel end-to-end... two input arrays, a parameterized f-string, compiled via <code style="font-family:var(--mono);font-size:13px;">nvcc</code>, result returned to Python. From there: tiled shared memory optimization, additional ops, and eventually a lightweight computation graph for kernel fusion.</p>
+    <p>End-to-end <code>log_returns</code> kernel: two input arrays, a parameterized f-string template, compiled via <code>nvcc</code>, result returned to Python. From there: tiled shared memory optimization, correlation and frontier ops, and eventually a lightweight computation graph for kernel fusion across a full analytics pipeline.</p>
+
+    <h3>Status</h3>
+    <p>Early development. Testing on Metal now. Cloud GPU access needed for CUDA validation.</p>
 
     <div>
       <span class="tag">Python</span>
       <span class="tag">CUDA</span>
+      <span class="tag">Metal</span>
       <span class="tag">C++</span>
-      <!-- <span class="tag">Pydantic</span> -->
-      <!-- <span class="tag">ctypes FFI</span> -->
-      <!-- <span class="tag">nvcc</span> -->
       <span class="tag">GPUs</span>
+      <span class="tag">Portfolio Analytics</span>
     </div>
   </div>
 
